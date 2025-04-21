@@ -1,0 +1,26 @@
+{
+    "method": "GET",
+    "content_type": "undefined",
+    "headers": {
+        "Host": "dev-raulin231.users.info.unicaen.fr",
+        "Connection": "keep-alive",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "Authorization": "Basic cmF1bGluMjMxOmFQYVVHMjdTWTVWYy5NYw==",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "X-Requested-With": "XMLHttpRequest",
+        "User-Agent": "Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36",
+        "Accept": "application\/json, text\/javascript, *\/*; q=0.01",
+        "sec-ch-ua": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"",
+        "sec-ch-ua-mobile": "?0",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Dest": "empty",
+        "Referer": "https:\/\/dev-raulin231.users.info.unicaen.fr\/bikestores\/Employes\/Gestion.php",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
+        "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Cookie": "PHPSESSID=9ns1u3sq9js6prk943hns4chjv"
+    },
+    "body": ""
+}
+Clé API invalide ou absente

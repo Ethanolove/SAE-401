@@ -1,0 +1,644 @@
+openapi: 3.0.3
+info:
+  title: Store Management API
+  version: 1.0.0
+  description: API grouped by theme according to the logic of api.php.
+servers:
+  - url: http://localhost/api.php
+tags:
+  - name: Products
+  - name: Stores
+  - name: Categories
+  - name: Brands
+  - name: Stocks
+  - name: Employees
+paths:
+  # Products
+  /products:
+    get:
+      tags: [Products]
+      summary: List all products or filter by brand, category, year, price, limit.
+      parameters:
+        - in: query
+          name: brand
+          schema: { type: integer }
+        - in: query
+          name: category
+          schema: { type: integer }
+        - in: query
+          name: year
+          schema: { type: integer }
+        - in: query
+          name: price
+          schema: { type: string }
+          description: Price range (min-max)
+        - in: query
+          name: limit
+          schema: { type: integer }
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      tags: [Products]
+      summary: Add a product
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Product added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}:
+    get:
+      tags: [Products]
+      summary: Get a product by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      tags: [Products]
+      summary: Update a product by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    delete:
+      tags: [Products]
+      summary: Delete a product by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Product deleted
+          content:
+            application/json:
+              schema:
+                type: object
+  /products/years:
+    get:
+      tags: [Products]
+      summary: List all product model years
+      responses:
+        '200':
+          description: List of years
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+
+  # Stores
+  /stores:
+    get:
+      tags: [Stores]
+      summary: List all stores
+      responses:
+        '200':
+          description: List of stores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+    post:
+      tags: [Stores]
+      summary: Add a store
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Store'
+      responses:
+        '200':
+          description: Store added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Store'
+  /stores/{id}:
+    get:
+      tags: [Stores]
+      summary: Get a store by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Store details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Store'
+    put:
+      tags: [Stores]
+      summary: Update a store by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Store'
+      responses:
+        '200':
+          description: Store updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Store'
+    delete:
+      tags: [Stores]
+      summary: Delete a store by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Store deleted
+          content:
+            application/json:
+              schema:
+                type: object
+
+  # Categories
+  /categories:
+    get:
+      tags: [Categories]
+      summary: List all categories
+      responses:
+        '200':
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    post:
+      tags: [Categories]
+      summary: Add a category
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /categories/{id}:
+    get:
+      tags: [Categories]
+      summary: Get a category by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Category details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    put:
+      tags: [Categories]
+      summary: Update a category by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    delete:
+      tags: [Categories]
+      summary: Delete a category by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Category deleted
+          content:
+            application/json:
+              schema:
+                type: object
+
+  # Brands
+  /brands:
+    get:
+      tags: [Brands]
+      summary: List all brands
+      responses:
+        '200':
+          description: List of brands
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+    post:
+      tags: [Brands]
+      summary: Add a brand
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          description: Brand added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+  /brands/{id}:
+    get:
+      tags: [Brands]
+      summary: Get a brand by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Brand details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+    put:
+      tags: [Brands]
+      summary: Update a brand by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          description: Brand updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+    delete:
+      tags: [Brands]
+      summary: Delete a brand by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Brand deleted
+          content:
+            application/json:
+              schema:
+                type: object
+
+  # Stocks
+  /stocks:
+    get:
+      tags: [Stocks]
+      summary: List all stocks
+      responses:
+        '200':
+          description: List of stocks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stock'
+    post:
+      tags: [Stocks]
+      summary: Add a stock
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Stock'
+      responses:
+        '200':
+          description: Stock added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+  /stocks/{id}:
+    get:
+      tags: [Stocks]
+      summary: Get a stock by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Stock details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+    put:
+      tags: [Stocks]
+      summary: Update a stock by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Stock'
+      responses:
+        '200':
+          description: Stock updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+    delete:
+      tags: [Stocks]
+      summary: Delete a stock by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Stock deleted
+          content:
+            application/json:
+              schema:
+                type: object
+  /stocks/get_stock:
+    get:
+      tags: [Stocks]
+      summary: Get stock quantity for a product in a store
+      parameters:
+        - in: query
+          name: product_id
+          schema: { type: integer }
+          required: true
+        - in: query
+          name: store_id
+          schema: { type: integer }
+          required: true
+      responses:
+        '200':
+          description: Stock quantity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  quantity:
+                    type: integer
+
+  # Employees
+  /employees:
+    get:
+      tags: [Employees]
+      summary: List all employees
+      responses:
+        '200':
+          description: List of employees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+    post:
+      tags: [Employees]
+      summary: Add an employee
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          description: Employee added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+  /employees/{id}:
+    get:
+      tags: [Employees]
+      summary: Get an employee by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Employee details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+    put:
+      tags: [Employees]
+      summary: Update an employee by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          description: Employee updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+    delete:
+      tags: [Employees]
+      summary: Delete an employee by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Employee deleted
+          content:
+            application/json:
+              schema:
+                type: object
+  /employees/by_store:
+    get:
+      tags: [Employees]
+      summary: Get employees by store
+      parameters:
+        - in: query
+          name: store_id
+          schema: { type: integer }
+          required: true
+      responses:
+        '200':
+          description: List of employees for a store
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+
+components:
+  schemas:
+    Store:
+      type: object
+      properties:
+        store_id:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+    Product:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        name:
+          type: string
+        model_year:
+          type: integer
+        list_price:
+          type: number
+        brand:
+          $ref: '#/components/schemas/Brand'
+        category:
+          $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      properties:
+        category_id:
+          type: integer
+        category_name:
+          type: string
+    Brand:
+      type: object
+      properties:
+        brand_id:
+          type: integer
+        brand_name:
+          type: string
+    Stock:
+      type: object
+      properties:
+        stock_id:
+          type: integer
+        product:
+          $ref: '#/components/schemas/Product'
+        store:
+          $ref: '#/components/schemas/Store'
+        quantity:
+          type: integer
+    Employee:
+      type: object
+      properties:
+        employee_id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+        store_id:
+          type: integer

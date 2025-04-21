@@ -1,0 +1,141 @@
+/* Styles généraux */
+body {
+    margin: 0;
+    background-image: url("icones/fond.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #2C3E50;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    color: #2C3E50;
+    margin-left: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #4D4D4D;
+}
+
+/* Header */
+#header {
+    display: flex;
+    background-color: #4CAF50;
+    justify-content: space-between;
+    padding: 15px 20px;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenu principal */
+#content {
+    background-color: #76C586;
+    height: auto;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+/* Footer */
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* Boutons et liens */
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#prod {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    padding: 10px;
+    border: 2px solid #ffffff;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#prod:hover {
+    background-color: #388E3C;
+}
+
+/* Carte */
+#map {
+    height: 600px;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.leaflet-control-container {
+    visibility: hidden;
+}
+
+/* Liste des produits */
+#ListeProd {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-height: 60vh;
+}
+
+#ListeProd > div {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+#ListeProd h3 {
+    margin-top: 0;
+    color: #2C3E50;
+}
+
+#ListeProd p {
+    color: #7F8C8D;
+}
+
+.price {
+    font-weight: bold;
+    color: #E74C3C;
+}
+
+.loadingMessage {
+    text-align: center;
+    padding: 20px;
+    color: #7F8C8D;
+}
